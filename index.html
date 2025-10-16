@@ -535,12 +535,12 @@
                 </p>
                 
                 <!-- Formulario -->
-                <div style="background: white; padding: 40px; border-radius: 20px; margin-top: 30px; max-width: 700px; margin-left: auto; margin-right: auto; color: #333;">
+                <div style="background: white; padding: 30px 20px; border-radius: 20px; margin-top: 30px; max-width: 900px; width: 95%; margin-left: auto; margin-right: auto; color: #333;">
                     <h4 style="color: #667eea; margin-bottom: 25px; font-size: 1.4em; text-align: center;">📋 Registro de Licencias</h4>
                     
                     <div style="margin-bottom: 20px;">
                         <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #555;">Número de usuarios:</label>
-                        <select id="numUsuarios" onchange="actualizarFormulario()" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em;">
+                        <select id="numUsuarios" onchange="actualizarFormulario()" style="width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 1.05em;">
                             <option value="1">1 usuario (S/40)</option>
                             <option value="2">2 usuarios (S/35 c/u - Total: S/70)</option>
                             <option value="3">3 usuarios (S/30 c/u - Total: S/90)</option>
@@ -589,13 +589,13 @@
                 
                 usuarioDiv.innerHTML = `
                     <h5 style="color: #667eea; margin-bottom: 15px; font-size: 1.1em;">Usuario ${i}</h5>
-                    <div style="margin-bottom: 12px;">
-                        <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #555; font-size: 0.95em;">Nombres y Apellidos:</label>
-                        <input type="text" id="nombre${i}" placeholder="Ej: Juan Carlos Pérez López" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 6px; font-size: 1em; box-sizing: border-box;" required>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #555; font-size: 1em;">Nombres y Apellidos:</label>
+                        <input type="text" id="nombre${i}" placeholder="Ej: Juan Carlos Pérez López" style="width: 100%; padding: 14px; border: 2px solid #ddd; border-radius: 8px; font-size: 1.05em; box-sizing: border-box;" required>
                     </div>
                     <div>
-                        <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #555; font-size: 0.95em;">ID de Usuario:</label>
-                        <input type="text" id="id${i}" placeholder="Ej: ABC123XYZ" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 6px; font-size: 1em; box-sizing: border-box;" required>
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #555; font-size: 1em;">ID de Usuario:</label>
+                        <input type="text" id="id${i}" placeholder="Ej: ABC123XYZ" style="width: 100%; padding: 14px; border: 2px solid #ddd; border-radius: 8px; font-size: 1.05em; box-sizing: border-box;" required>
                     </div>
                 `;
                 
