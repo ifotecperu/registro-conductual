@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Registro Conductual - Presentación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Portada */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s;
+        }
+
+        .app-icon {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        /* Secciones */
+        section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-light {
+            background: #f8f9fa;
+        }
+
+        /* Beneficios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .benefit-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Comparación */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .comparison-box {
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .without-app {
+            background: #ffe0e0;
+            border: 3px solid #ff6b6b;
+        }
+
+        .with-app {
+            background: #e0f7e0;
+            border: 3px solid #51cf66;
+        }
+
+        .comparison-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .comparison-box h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .comparison-box ul {
+            list-style: none;
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+        .comparison-box li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .without-app li:before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+        }
+
+        .with-app li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Oferta */
+        .offer-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .price-box {
+            background: white;
+            color: #333;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            min-width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .price-box:hover {
+            transform: scale(1.05);
+        }
+
+        .price-label {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .price-amount {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #f5576c;
+            margin-bottom: 10px;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 2em;
+        }
+
+        .price-new {
+            color: #51cf66;
+        }
+
+        .price-detail {
+            font-size: 1em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .offer-badge {
+            background: #ffd43b;
+            color: #333;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        .countdown {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-top: 40px;
+            background: rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-button {
+            background: #ffd43b;
+            color: #333;
+            padding: 25px 60px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Animaciones */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .section-white h2, .cta-section h2, .offer-section h2 {
+            color: white;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .offer-section .subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .price-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Portada -->
+    <div class="hero">
+        <div class="app-icon">📊</div>
+        <h1>App Registro Conductual</h1>
+        <p>La herramienta profesional para análisis experimental del comportamiento</p>
+    </div>
+
+    <!-- Beneficios -->
+    <section class="section-white">
+        <div class="container">
+            <h2>¿Por qué necesitas esta app?</h2>
+            <p class="subtitle" style="margin-bottom: 30px;">Transforma tu forma de hacer registros conductuales</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Ahorra Tiempo</h3>
+                    <p>Lo que te tomaba 2-3 horas de registro manual, ahora lo haces en 30 minutos. Más tiempo para analizar, menos para registrar.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Precisión Milimétrica</h3>
+                    <p>Cronómetros integrados, registro simultáneo de múltiples conductas. Cero errores de cálculo, cero confusiones.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Excel Automático</h3>
+                    <p>Exporta tus datos perfectamente organizados. Listo para análisis estadístico. Sin transcribir, sin formatear.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3>Concordancia Inter-observador</h3>
+                    <p>Cada miembro registra individualmente. Compara datos entre observadores. Metodología científica profesional.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔄</div>
+                    <h3>Múltiples Sesiones</h3>
+                    <p>Guarda todas tus sesiones. Compara evolución temporal. Todo tu proyecto en una sola app.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔬</div>
+                    <h3>Datos Profesionales</h3>
+                    <p>Proyectos complejos requieren herramientas profesionales. Esta app te garantiza datos confiables para tus informes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparación -->
+    <section class="section-light">
+        <div class="container">
+            <h2>Sin la App vs Con la App</h2>
+            <p class="subtitle">La diferencia es abismal</p>
+            
+            <div class="comparison">
+                <div class="comparison-box without-app">
+                    <div class="comparison-icon">😓</div>
+                    <h3>Método Tradicional</h3>
+                    <ul>
+                        <li>Papel, cronómetro y calculadora</li>
+                        <li>2-3 horas por sesión de registro</li>
+                        <li>Errores de transcripción</li>
+                        <li>Datos desorganizados</li>
+                        <li>Formatear Excel manualmente</li>
+                        <li>Riesgo de perder anotaciones</li>
+                        <li>Imposible registrar múltiples conductas</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-box with-app">
+                    <div class="comparison-icon">🚀</div>
+                    <h3>Con Nuestra App</h3>
+                    <ul>
+                        <li>Todo en una sola herramienta</li>
+                        <li>30 minutos por sesión</li>
+                        <li>Precisión automática</li>
+                        <li>Datos perfectamente organizados</li>
+                        <li>Excel listo para análisis</li>
+                        <li>Respaldo automático de datos</li>
+                        <li>Registro simultáneo sin límites</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oferta -->
+    <section class="offer-section">
+        <div class="container">
+            <h2>🔥 OFERTA ESPECIAL DE LANZAMIENTO 🔥</h2>
+            <p class="subtitle">Solo válida hasta el 21 de Octubre</p>
+            
+            <div class="price-container">
+                <div class="price-box">
+                    <div class="price-label">Precio Individual</div>
+                    <div class="price-amount price-old">S/40</div>
+                    <div class="price-detail">Precio regular</div>
+                </div>
+                
+                <div class="price-box">
+                    <div class="price-label">Grupo de 4 personas</div>
+                    <div class="price-amount price-new">S/25</div>
+                    <div class="price-detail">Por persona • S/100 total grupo</div>
+                    <div class="offer-badge">¡AHORRA S/60!</div>
+                </div>
+                
+                <div class="price-box" style="border: 4px solid #ffd43b; transform: scale(1.05);">
+                    <div style="background: #ffd43b; color: #333; padding: 10px; margin: -50px -50px 20px -50px; border-radius: 30px 30px 0 0; font-weight: bold;">
+                        🏆 MEJOR OFERTA
+                    </div>
+                    <div class="price-label">Grupo de 5 personas</div>
+                    <div class="price-amount price-new">S/18</div>
+                    <div class="price-detail">Por persona • S/90 total grupo</div>
+                    <div class="offer-badge">¡AHORRA S/110!</div>
+                </div>
+            </div>
+            
+            <div class="countdown">
+                ⏰ Oferta válida hasta: <br>
+                21 de Octubre, 2025
+            </div>
+            
+            <p style="font-size: 1.3em; margin-top: 40px; line-height: 1.8;">
+                <strong>¿Por qué licencias individuales?</strong><br>
+                En investigación experimental, la concordancia inter-observador es un estándar<br>
+                metodológico esencial para garantizar la fiabilidad de los datos recolectados.<br><br>
+                <strong>💎 Descuento especial de lanzamiento</strong><br>
+                Estás ahorrando hasta 55% del precio regular • Oferta única e irrepetible
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo para hacer registros profesionales?</h2>
+            <p class="subtitle" style="color: rgba(255,255,255,0.9); font-size: 1.4em;">
+                Tu proyecto de discriminación, moldeamiento y encadenamiento<br>
+                merece herramientas de calidad profesional
+            </p>
+            
+            <button class="cta-button" onclick="window.open('https://wa.me/51922163321?text=Hola,%20quiero%20información%20sobre%20la%20App%20de%20Registro%20Conductual', '_blank')">¡QUIERO MI LICENCIA GRUPAL!</button>
+            
+            <div style="margin-top: 50px; font-size: 1.2em; line-height: 2;">
+                <p>✅ Licencia válida por 6 meses</p>
+                <p>✅ Actualizaciones gratuitas durante vigencia</p>
+                <p>✅ Soporte técnico incluido</p>
+                <p>✅ Sin mensualidades ni cobros ocultos</p>
+            </div>
+            
+            <div style="margin-top: 60px; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 20px; backdrop-filter: blur(10px);">
+                <h3 style="font-size: 1.8em; margin-bottom: 20px;">📱 Cómo adquirir tu licencia</h3>
+                <p style="font-size: 1.2em; line-height: 1.8; text-align: left; max-width: 800px; margin: 0 auto;">
+                    <strong>1. Recopila información del grupo:</strong><br>
+                    • ID de cada usuario (se encuentra en la app)<br>
+                    • Nombres y apellidos completos de cada usuario<br>
+                    • Desde 1 hasta 5 personas<br><br>
+                    
+                    <strong>2. Realiza el pago:</strong><br>
+                    • 1 persona: S/40<br>
+                    • 2 personas: S/35 c/u (S/70 total)<br>
+                    • 3 personas: S/30 c/u (S/90 total)<br>
+                    • 4 personas: S/25 c/u (S/100 total)<br>
+                    • 5 personas: S/18 c/u (S/90 total) 🏆<br>
+                    • Yape/Plin al número: <span style="background: rgba(255,255,255,0.3); padding: 5px 15px; border-radius: 10px; font-weight: bold;">971 543 615</span><br>
+                    • A nombre de: <strong>Marjhury N. Albán</strong><br><br>
+                </p>
+                
+                <button class="cta-button" onclick="window.open('https://wa.me/51922163321?text=Hola,%20adjunto%20captura%20de%20pago%20para%20licencias.', '_blank')" style="margin-top: 20px; margin-bottom: 30px; font-size: 1.1em; padding: 15px 35px; background: #25D366;">
+                    📸 Enviar captura de pago
+                </button>
+                
+                <p style="font-size: 1.2em; line-height: 1.8; text-align: left; max-width: 800px; margin: 0 auto; margin-top: 20px;">
+                    <strong>3. Completa el formulario y envía la información:</strong>
+                </p>
+                
+                <!-- Formulario -->
+                <div style="background: white; padding: 40px; border-radius: 20px; margin-top: 30px; max-width: 700px; margin-left: auto; margin-right: auto; color: #333;">
+                    <h4 style="color: #667eea; margin-bottom: 25px; font-size: 1.4em; text-align: center;">📋 Registro de Licencias</h4>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #555;">Número de usuarios:</label>
+                        <select id="numUsuarios" onchange="actualizarFormulario()" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em;">
+                            <option value="1">1 usuario (S/40)</option>
+                            <option value="2">2 usuarios (S/35 c/u - Total: S/70)</option>
+                            <option value="3">3 usuarios (S/30 c/u - Total: S/90)</option>
+                            <option value="4">4 usuarios (S/25 c/u - Total: S/100)</option>
+                            <option value="5" selected>5 usuarios (S/18 c/u - Total: S/90) 🏆</option>
+                        </select>
+                    </div>
+                    
+                    <div id="formularioUsuarios"></div>
+                    
+                    <div style="margin-top: 25px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #667eea;">
+                        <p style="margin: 0; font-size: 0.95em; color: #666; line-height: 1.6;">
+                            <strong>Nota:</strong> Asegúrate de haber realizado el pago antes de enviar el formulario. Si tienes dificultades para llenar este formulario también puedes enviarnos los datos en el chat de WhatsApp. <a href="https://wa.me/51922163321?text=Hola,%20tengo%20dificultades%20con%20el%20formulario.%20Quisiera%20enviar%20los%20datos%20manualmente." target="_blank" style="color: #667eea; font-weight: bold; text-decoration: none;">Click aquí</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <button class="cta-button" onclick="enviarWhatsApp()" style="margin-top: 30px; font-size: 1.2em; padding: 20px 40px;">
+                    💬 Enviar solicitud por WhatsApp
+                </button>
+                
+                <p style="font-size: 1.2em; line-height: 1.8; margin-top: 30px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <strong>4. Activa tu licencia:</strong><br>
+                    • Recibirás confirmación en máximo 24 horas<br>
+                    • Tus licencias se activarán automáticamente<br>
+                    • ¡Listo para registrar como profesionales!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Generar formulario dinámico
+        function actualizarFormulario() {
+            const num = document.getElementById('numUsuarios').value;
+            const container = document.getElementById('formularioUsuarios');
+            container.innerHTML = '';
+            
+            for (let i = 1; i <= num; i++) {
+                const usuarioDiv = document.createElement('div');
+                usuarioDiv.style.marginBottom = '25px';
+                usuarioDiv.style.padding = '20px';
+                usuarioDiv.style.background = '#f8f9fa';
+                usuarioDiv.style.borderRadius = '12px';
+                usuarioDiv.style.border = '2px solid #e9ecef';
+                
+                usuarioDiv.innerHTML = `
+                    <h5 style="color: #667eea; margin-bottom: 15px; font-size: 1.1em;">Usuario ${i}</h5>
+                    <div style="margin-bottom: 12px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #555; font-size: 0.95em;">Nombres y Apellidos:</label>
+                        <input type="text" id="nombre${i}" placeholder="Ej: Juan Carlos Pérez López" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 6px; font-size: 1em; box-sizing: border-box;" required>
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #555; font-size: 0.95em;">ID de Usuario:</label>
+                        <input type="text" id="id${i}" placeholder="Ej: ABC123XYZ" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 6px; font-size: 1em; box-sizing: border-box;" required>
+                    </div>
+                `;
+                
+                container.appendChild(usuarioDiv);
+            }
+        }
+        
+        // Enviar por WhatsApp
+        function enviarWhatsApp() {
+            const num = document.getElementById('numUsuarios').value;
+            let mensaje = '🎓 *SOLICITUD DE LICENCIAS*%0A';
+            mensaje += '━━━━━━━━━━━━━━━━━━━━━━━━%0A%0A';
+            mensaje += `👥 *Número de licencias:* ${num} ${num === '1' ? 'usuario' : 'usuarios'}%0A`;
+            
+            const montos = {
+                '1': 'S/40',
+                '2': 'S/70 (S/35 c/u)',
+                '3': 'S/90 (S/30 c/u)',
+                '4': 'S/100 (S/25 c/u)',
+                '5': 'S/90 (S/18 c/u)'
+            };
+            mensaje += `💰 *Monto pagado:* ${montos[num]}%0A%0A`;
+            mensaje += '📋 *DATOS DE USUARIOS:*%0A%0A';
+            
+            let todosCompletos = true;
+            
+            for (let i = 1; i <= num; i++) {
+                const nombre = document.getElementById(`nombre${i}`).value.trim();
+                const id = document.getElementById(`id${i}`).value.trim();
+                
+                if (!nombre || !id) {
+                    todosCompletos = false;
+                    break;
+                }
+                
+                mensaje += `*${i}. ${nombre}*%0A`;
+                mensaje += `   ID: ${id}%0A%0A`;
+            }
+            
+            if (!todosCompletos) {
+                alert('⚠️ Por favor completa todos los campos antes de enviar.');
+                return;
+            }
+            
+            mensaje += '━━━━━━━━━━━━━━━━━━━━━━━━%0A';
+            mensaje += '✅ Captura de pago enviada anteriormente%0A%0A';
+            mensaje += 'Quedo atento a la activación de las licencias. ¡Gracias!';
+            
+            const url = `https://wa.me/51922163321?text=${mensaje}`;
+            window.open(url, '_blank');
+        }
+        
+        // Inicializar formulario al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            actualizarFormulario();
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animaciones al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-card, .comparison-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s, transform 0.6s';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
